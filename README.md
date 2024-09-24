@@ -26,28 +26,32 @@ df = pd.read_csv('Input File Location')
 df.shape
 ```
 
-IMG
+![Shape](https://github.com/user-attachments/assets/0e8fdb8b-a388-4023-bdd4-862a6ceb2713)
+
 
 ```
 #shows all the columns
 df.columns
 ```
 
-IMG
+![df columns](https://github.com/user-attachments/assets/c7f79adf-f986-45d6-be70-c15fa01ef66a)
+
 
 ```
 #checks the shape of the DataFrame
 df.dtypes
 ```
 
-IMG
+![df dtypes](https://github.com/user-attachments/assets/2a2bf176-86cf-4cbf-b1ff-cc5450f31b72)
+
 
 ```
 #checks the shape of the DataFrame
 df.describe()
 ```
 
-IMG
+![df dtypes](https://github.com/user-attachments/assets/46855231-9093-4849-a684-7ba0a7ac5807)
+
 
 ```
 #checks the shape of the DataFrame
@@ -114,7 +118,8 @@ df = df.rename(columns={'coaster_name':'Coaster_Name',
                    'Gforce_clean' : 'Gforce'})
 ```
 
-IMG
+![df rename](https://github.com/user-attachments/assets/f2747253-fd5b-4c28-8c46-48f37862a3aa)
+
 
 **Now check the SUm of all the NA values in each of the Column:**
 
@@ -122,21 +127,24 @@ IMG
 df.isna().sum()
 ```
 
-IMG
+![df isna](https://github.com/user-attachments/assets/72f1e260-9b0b-4748-8876-b4c38be6fc77)
+
 
 ```
 # Check for duplicate coaster name
 df.loc[df.duplicated(subset=['Coaster_Name'])].head(5)
 ```
 
-IMG
+![df duplicate](https://github.com/user-attachments/assets/aaa40b7e-45c7-4d36-9f95-9e122df183a3)
+
 
 ```
 # Checking an example duplicate
 df.query('Coaster_Name == "Crystal Beach Cyclone"')
 ```
 
-IMG
+![CBC Check](https://github.com/user-attachments/assets/fda9123a-a475-4257-9e4b-020184efb75e)
+
 
 
 * Now in the below code, I have extracted all the duplicate values that have the same values in all of the 3 given columns. 
@@ -162,7 +170,8 @@ Now I am going to check which Years have the highest-lowest number of Roller Coa
 df['Year_Introduced'].value_counts()
 ```
 
-IMG
+![Value count](https://github.com/user-attachments/assets/4df9508c-00cc-4d13-82bc-ccc612012258)
+
 
 
 Now I am going to Plot a Bar Graph taking the Year Introduced and the Count of ROllar Coaster set in a particular year:
@@ -176,7 +185,8 @@ ax.set_ylabel('Count')
 plt.show()
 ```
 
-IMG
+![plt show 1](https://github.com/user-attachments/assets/03335242-0461-457e-89a0-dd98bb25cc54)
+
 
 Now we will create a Histogram. Histogram is more useful for continuous data plotting like **Speed**. So, I'll plot **Speed data against the frequency**:
 ```
@@ -186,13 +196,16 @@ ax = df['Speed_mph'].plot(kind='hist',
 ax.set_xlabel('Speed (mph)')
 ```
 
-IMG
+![hist plt](https://github.com/user-attachments/assets/e2b597f4-a2dc-4055-a556-07a4793dcedf)
+
 
 ```
 ax = df['Speed_mph'].plot(kind='kde',
                           title='Coaster Speed (mph)')
 ax.set_xlabel('Speed (mph)')
 ```
+
+![kde](https://github.com/user-attachments/assets/74feec3d-df5a-4d78-bd8d-6e421a298c68)
 
 
 ## Step 4: Feature Relationships ##
@@ -212,7 +225,8 @@ df.plot(kind='scatter',
 plt.show()
 ```
 
-IMG
+![scatter](https://github.com/user-attachments/assets/6447872e-c92b-4f1b-9bed-6d5eb0d2ca6a)
+
 
 Now analyze the below command, if you see the graph, there is a Third criterion that I have **introduced which is "Year_Introduced" using Hue**.
 ```
@@ -224,9 +238,10 @@ ax.set_title('Coaster Speed vs. Height')
 plt.show()
 ```
 
-IMG
+![scatter hue](https://github.com/user-attachments/assets/3e72c6d9-b345-4243-a388-809a102c5b40)
 
-ANalyse this PairPlot: 
+
+Analyze this PairPlot: 
 ```
 sns.pairplot(df,
              vars=['Year_Introduced','Speed_mph',
@@ -235,7 +250,7 @@ sns.pairplot(df,
 plt.show()
 ```
 
-IMG
+![pairplot](https://github.com/user-attachments/assets/34e7a76e-7aa2-4e3f-b957-29c2d0927f24)
 
 ```
 df.plot(kind='scatter',
@@ -244,6 +259,8 @@ df.plot(kind='scatter',
         title='Coaster Speed vs. Height')
 plt.show()
 ```
+
+
 
 
 ## Step 5: Ask a Question about the data ##
@@ -262,5 +279,5 @@ ax = df.query('Location != "Other"') \
 ax.set_xlabel('Average Coaster Speed')
 plt.show()
 ```
+![bar](https://github.com/user-attachments/assets/8f23527b-3b46-47b8-9395-6c0ae05901a6)
 
-IMG
